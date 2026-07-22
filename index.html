@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Biblioteca</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+    <header class="cabecalho">
+
+        <h1>📚 Sistema de Biblioteca</h1>
+
+        <p>
+            Gerenciamento de livros e empréstimos
+        </p>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- ================================
+             CADASTRO DE LIVRO
+             ================================= -->
+
+        <section class="card">
+
+            <h2>Cadastrar Livro</h2>
+
+
+            <form id="form-livro">
+
+
+                <div class="campo">
+
+                    <label for="id">
+                        ID do livro
+                    </label>
+
+                    <input
+                        type="number"
+                        id="id"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="titulo">
+                        Título
+                    </label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="autor">
+                        Autor
+                    </label>
+
+                    <input
+                        type="text"
+                        id="autor"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="isbn">
+                        ISBN
+                    </label>
+
+                    <input
+                        type="text"
+                        id="isbn"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="ano">
+                        Ano de publicação
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ano"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-principal">
+
+                    Cadastrar Livro
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+        <!-- ================================
+             BUSCA DE LIVRO
+             ================================= -->
+
+        <section class="card">
+
+            <h2>Buscar Livro</h2>
+
+
+            <div class="busca">
+
+                <input
+                    type="text"
+                    id="campo-busca"
+                    placeholder="Digite o título ou autor..."
+                >
+
+
+                <button
+                    id="btn-buscar"
+                    class="btn-secundario">
+
+                    Buscar
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             LISTA DE LIVROS
+             ================================= -->
+
+        <section class="card">
+
+            <div class="cabecalho-lista">
+
+                <h2>Livros Cadastrados</h2>
+
+                <span id="total-livros">
+                    0 livros
+                </span>
+
+            </div>
+
+
+            <div
+                id="lista-livros"
+                class="lista-livros">
+
+                <!-- Os livros serão adicionados
+                     pelo JavaScript -->
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="rodape">
+
+        <p>
+            Sistema de Biblioteca © 2026
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

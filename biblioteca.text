@@ -1,0 +1,311 @@
+# 📚 Sistema de Biblioteca
+
+Sistema de gerenciamento de biblioteca desenvolvido em **C**, com uma interface web desenvolvida utilizando **HTML, CSS e JavaScript**.
+
+O projeto tem como objetivo aplicar conceitos de **Estruturas de Dados**, especialmente a **Árvore Binária de Busca (BST)**, em um sistema prático de gerenciamento de livros.
+
+---
+
+## 🎯 Objetivo
+
+Desenvolver um sistema capaz de gerenciar livros de uma biblioteca, permitindo:
+
+* Cadastrar livros;
+* Buscar livros;
+* Listar livros;
+* Remover livros;
+* Controlar a disponibilidade dos livros;
+* Realizar empréstimos e devoluções;
+* Armazenar os dados dos livros.
+
+---
+
+## 🧠 Estrutura de Dados
+
+A principal estrutura utilizada no sistema é uma **Árvore Binária de Busca (BST)**.
+
+Cada nó da árvore representa um livro:
+
+```text
+                 100
+                /   \
+              50     150
+             /  \       \
+           25    75      200
+```
+
+O livro é organizado utilizando o seu **ID** como chave de ordenação.
+
+### Complexidade das operações
+
+| Operação | Complexidade média | Pior caso |
+| -------- | -----------------: | --------: |
+| Inserção |           O(log n) |      O(n) |
+| Busca    |           O(log n) |      O(n) |
+| Remoção  |           O(log n) |      O(n) |
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+### Backend
+
+* C
+* GCC
+* Árvore Binária de Busca (BST)
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Armazenamento
+
+* Arquivo `.txt`
+* `localStorage` do navegador
+
+---
+
+## 📁 Estrutura do projeto
+
+```text
+SistemaBiblioteca/
+│
+├── main.c
+├── biblioteca.c
+├── biblioteca.h
+│
+├── dados/
+│   └── biblioteca.txt
+│
+└── frontend/
+    │
+    ├── index.html
+    ├── style.css
+    └── script.js
+```
+
+---
+
+## 📚 Funcionalidades
+
+### Cadastro de livros
+
+Cada livro possui:
+
+```text
+ID
+Título
+Autor
+ISBN
+Ano de publicação
+Status de disponibilidade
+```
+
+Exemplo:
+
+```text
+ID: 100
+Título: Estruturas de Dados
+Autor: Cormen
+ISBN: 9780262033848
+Ano: 2009
+Status: Disponível
+```
+
+---
+
+### 🔍 Busca
+
+O sistema permite buscar livros utilizando:
+
+* Título;
+* Autor;
+* ISBN;
+* ID.
+
+---
+
+### 📖 Empréstimo e devolução
+
+Um livro pode possuir dois estados:
+
+```text
+Disponível
+Emprestado
+```
+
+Ao realizar um empréstimo:
+
+```text
+Disponível → Emprestado
+```
+
+Ao realizar uma devolução:
+
+```text
+Emprestado → Disponível
+```
+
+---
+
+### 🗑️ Remoção
+
+É possível remover um livro utilizando seu ID.
+
+Na árvore binária, a remoção pode envolver três situações:
+
+1. Nó sem filhos;
+2. Nó com um filho;
+3. Nó com dois filhos.
+
+---
+
+## 💾 Formato dos dados
+
+Os livros podem ser armazenados no arquivo:
+
+```text
+dados/biblioteca.txt
+```
+
+Formato:
+
+```text
+ID|TÍTULO|AUTOR|ISBN|ANO|DISPONIBILIDADE
+```
+
+Exemplo:
+
+```text
+100|Estruturas de Dados|Cormen|9780262033848|2009|1
+50|Programação em C|Kernighan|9780131103627|1988|1
+150|Algoritmos|Robert Sedgewick|9780321573513|2011|1
+```
+
+Onde:
+
+```text
+1 = Disponível
+0 = Emprestado
+```
+
+---
+
+## ⚙️ Como compilar o programa em C
+
+No terminal, entre na pasta do projeto:
+
+```bash
+gcc main.c biblioteca.c -o biblioteca
+```
+
+Depois execute:
+
+### Linux / macOS
+
+```bash
+./biblioteca
+```
+
+### Windows
+
+```bash
+biblioteca.exe
+```
+
+---
+
+## 🌐 Como executar a interface web
+
+Entre na pasta:
+
+```text
+frontend/
+```
+
+Depois abra o arquivo:
+
+```text
+index.html
+```
+
+em um navegador.
+
+A interface permite:
+
+* Cadastrar livros;
+* Buscar livros;
+* Listar livros;
+* Emprestar livros;
+* Devolver livros;
+* Remover livros.
+
+Os dados da interface são armazenados no navegador utilizando:
+
+```javascript
+localStorage
+```
+
+---
+
+## 🚀 Possíveis melhorias
+
+O projeto pode ser expandido com:
+
+* [ ] Cadastro de usuários;
+* [ ] Sistema de empréstimos;
+* [ ] Registro de datas;
+* [ ] Controle de atrasos;
+* [ ] Multas;
+* [ ] Persistência completa em arquivos;
+* [ ] Integração entre o frontend e o backend em C;
+* [ ] Implementação de Patricia Trie para busca por prefixo;
+* [ ] Implementação de Splay Tree para livros mais acessados;
+* [ ] Implementação de B-Tree para grandes volumes de dados;
+* [ ] Sistema de autenticação;
+* [ ] Banco de dados.
+
+---
+
+## 📈 Evolução planejada
+
+O projeto pode evoluir utilizando diferentes estruturas de dados:
+
+```text
+BST
+ ↓
+Splay Tree
+ ↓
+Patricia Trie
+ ↓
+B-Tree
+```
+
+Cada estrutura pode ser utilizada para uma finalidade específica:
+
+| Estrutura     | Aplicação                       |
+| ------------- | ------------------------------- |
+| BST           | Organização dos livros por ID   |
+| Splay Tree    | Livros frequentemente acessados |
+| Patricia Trie | Busca por título e autor        |
+| B-Tree        | Grandes volumes de livros       |
+
+---
+
+## 👨‍💻 Autor
+
+Projeto desenvolvido como estudo prático de:
+
+* Algoritmos;
+* Estruturas de Dados;
+* Programação em C;
+* Desenvolvimento Web;
+* Organização de projetos utilizando Git e GitHub.
+
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins educacionais.

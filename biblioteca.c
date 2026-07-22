@@ -211,3 +211,58 @@ void liberarArvore(No *raiz) {
 
     free(raiz);
 }
+
+
+
+/* ============================================
+   CARREGAR LIVROS DO ARQUIVO
+   ============================================ */
+
+No *carregarArquivo(No *raiz, FILE *arquivo) {
+
+    Livro livro;
+
+    while (fscanf(
+        arquivo,
+        "%d|%99[^|]|%99[^|]|%19[^|]|%d|%d\n",
+        &livro.id,
+        livro.titulo,
+        livro.autor,
+        livro.isbn,
+        &livro.ano,
+        &livro.disponivel
+    ) == 6) {
+
+        raiz = inserirLivro(raiz, livro);
+    }
+
+    return raiz;
+}
+
+
+/* ============================================
+   SALVAR LIVROS NO ARQUIVO
+   ============================================ */
+
+void salvarArquivo(No *raiz, FILE *arquivo) {
+
+    if (raiz == NULL) {
+
+        return;
+    }
+
+    salvarArquivo(raiz->esquerda, arquivo);
+
+    fprintf(
+        arquivo,
+        "%d|%s|%s|%s|%d|%d\n",
+        raiz->livro.id,
+        raiz->livro.titulo,
+        raiz->livro.autor,
+        raiz->livro.isbn,
+        raiz->livro.ano,
+        raiz->livro.disponivel
+    );
+
+    salvarArquivo(raiz->direita, arquivo);
+}
